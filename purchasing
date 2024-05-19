@@ -1,0 +1,56 @@
+import java.util.Scanner;                                                              //intellij
+
+public class Change {
+    public static void main(String[] args) {
+        System.out.println("What did purchasing these things cost you?");
+        Scanner cost = new Scanner(System.in);
+        double price = cost.nextDouble();
+        double change = 20.0 - price;
+        int tens = 0;
+        int five = 0;
+        int one = 0;
+        int quarter = 0;
+        int dime = 0;
+        int nickle = 0;
+        int peny = 0;
+        if (price > 20) {
+            System.out.println("You too poor");
+        } else {
+            System.out.println("You will receive");
+            System.out.println(change);
+            System.out.println("for this");
+        }
+        while (change > 0.001) {                          //does not work for 0
+            if (change >= 10) {
+                tens++;
+                change = change - 10;
+            } else if (change >= 5) {
+                five++;
+                change = change - 5;
+            } else if (change >= 1) {
+                one++;
+                change = change - 1;
+            } else if (change >= 0.25) {
+                quarter++;
+                change = change - 0.25;
+            } else if (change >= 0.10) {
+                dime++;
+                change = change - 0.10;
+            } else if (change >= 0.05) {
+                nickle++;
+                change = change - 0.05;
+            } else if (change >= 0.009) {             //does not work for 0.01
+                peny++;
+                change = change - 0.01;
+            }
+        }
+        System.out.println("You have: \n");
+        System.out.println(tens); System.out.println(" tens");
+        System.out.println(five); System.out.println(" fives");
+        System.out.println(one); System.out.println(" ones");
+        System.out.println(quarter); System.out.println(" quarters");
+        System.out.println(dime); System.out.println(" dimes");
+        System.out.println(nickle); System.out.println(" nickels");
+        System.out.println(peny); System.out.println(" pennies");
+    }
+}
